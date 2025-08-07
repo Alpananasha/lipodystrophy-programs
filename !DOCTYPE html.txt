@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lipodystrophy United - Community Programs & Support</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+            border-bottom: 3px solid #dc3545;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .logo-icon {
+            width: 60px;
+            height: 60px;
+            margin-right: 15px;
+            background: linear-gradient(45deg, #dc3545, #000);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .logo-icon::before,
+        .logo-icon::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: #fff;
+            transform: rotate(45deg);
+        }
+
+        .logo-icon::before {
+            top: 8px;
+            left: 8px;
+        }
+
+        .logo-icon::after {
+            bottom: 8px;
+            right: 8px;
+            background: #dc3545;
+        }
+
+        .logo h1 {
+            font-size: 2.2em;
+            color: #000;
+            font-weight: 300;
+        }
+
+        .tagline {
+            color: #666;
+            font-size: 1.1em;
+            margin-top: 10px;
+        }
+
+        nav {
+            margin-top: 20px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        nav a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            background: #dc3545;
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 2.5em;
+            color: #000;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2em;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+
+        .audience-tags {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .tag {
+            background: #dc3545;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+
+        /* Programs Section */
+        .programs {
+            padding: 80px 0;
+            background: #fff;
+        }
+
+        .programs h2 {
+            text-align: center;
+            font-size: 2.2em;
+            color: #000;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        .programs-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 60px;
+            font-size: 1.1em;
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .program-card {
+            background: #fff;
+            border: 2px solid #e9ecef;
+            border-radius: 15px;
+            padding: 40px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .program-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #dc3545, #000);
+        }
+
+        .program-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            border-color: #dc3545;
+        }
+
+        .program-title {
+            font-size: 1.5em;
+            color: #dc3545;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .program-schedule {
+            background: #f8f9fa;
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-weight: 500;
+            color: #495057;
+        }
+
+        .program-description {
+            color: #666;
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+
+        .register-btn {
+            background: #dc3545;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .register-btn:hover {
+            background: #c82333;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(220, 53, 69, 0.3);
+        }
+
+        /* Calendar Section */
+        .calendar-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 80px 0;
+        }
+
+        .calendar-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .calendar-header h2 {
+            font-size: 2.2em;
+            color: #000;
+            margin-bottom: 15px;
+            font-weight: 300;
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .event-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 5px solid #dc3545;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .event-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+        }
+
+        .event-date {
+            color: #dc3545;
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: 8px;
+        }
+
+        .event-title {
+            font-size: 1.2em;
+            color: #000;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .event-type {
+            background: #6c757d;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        /* Resources Section */
+        .resources {
+            padding: 80px 0;
+            background: #fff;
+        }
+
+        .resources h2 {
+            text-align: center;
+            font-size: 2.2em;
+            color: #000;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .resource-card {
+            background: #f8f9fa;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .resource-card:hover {
+            background: #fff;
+            border-color: #dc3545;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .resource-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #dc3545, #c82333);
+            border-radius: 50%;
+            margin: 0 auto 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2em;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: linear-gradient(135deg, #000 0%, #333 100%);
+            padding: 80px 0;
+            color: white;
+        }
+
+        .testimonials h2 {
+            text-align: center;
+            font-size: 2.2em;
+            margin-bottom: 50px;
+            font-weight: 300;
+        }
+
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .testimonial {
+            padding: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+        }
+
+        .testimonial-text {
+            font-size: 1.2em;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            color: #dc3545;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            background: #000;
+            color: white;
+            padding: 50px 0 30px;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            color: #dc3545;
+            margin-bottom: 20px;
+            font-size: 1.3em;
+        }
+
+        .footer-section p, .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            line-height: 1.6;
+        }
+
+        .footer-section a:hover {
+            color: #dc3545;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 30px;
+            color: #666;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero h2 {
+                font-size: 2em;
+            }
+
+            .programs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                justify-content: center;
+            }
+
+            .calendar-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Interactive Elements */
+        .cta-section {
+            background: #dc3545;
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .cta-btn {
+            background: white;
+            color: #dc3545;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            background: #f8f9fa;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon"></div>
+                    <div>
+                        <h1>Lipodystrophy United</h1>
+                        <div class="tagline">Community • Support • Education • Advocacy</div>
+                    </div>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#programs">Programs</a></li>
+                        <li><a href="#calendar">Calendar</a></li>
+                        <li><a href="#resources">Resources</a></li>
+                        <li><a href="#community">Community</a></li>
+                        <li><a href="#about">About</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2>Connecting the Lipodystrophy Community</h2>
+            <p class="hero-subtitle">Join our virtual support groups, educational sessions, and community programs designed for patients, families, caregivers, medical professionals, and researchers working together to advance understanding and support for lipodystrophy.</p>
+            <div class="audience-tags">
+                <span class="tag">Patients & Families</span>
+                <span class="tag">Healthcare Providers</span>
+                <span class="tag">Researchers</span>
+                <span class="tag">Caregivers</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="programs" class="programs">
+        <div class="container">
+            <h2>Our Community Programs</h2>
+            <p class="programs-subtitle">Whether you're newly diagnosed, seeking answers, or looking to connect with others on a similar journey, our programs provide support, education, and community at every step.</p>
+            
+            <div class="programs-grid">
+                <div class="program-card">
+                    <h3 class="program-title">Tea with LU - Monthly Support</h3>
+                    <div class="program-schedule">📅 First Tuesday of Every Month • Virtual</div>
+                    <p class="program-description">A welcoming virtual support group providing a safe space for individuals with lipodystrophy, caregivers, and loved ones to connect and share experiences. Each session features open discussions on daily challenges, mental health, advocacy, and medical insights. Build relationships with others who truly understand your journey.</p>
+                    <a href="https://us06web.zoom.us/meeting/register/tZAvc--uqz4pGdQoWRsbgqAkpsHDmiEV92BR" class="register-btn" target="_blank">Register for Tea with LU</a>
+                </div>
+
+                <div class="program-card">
+                    <h3 class="program-title">Tea with LU - Special Sessions</h3>
+                    <div class="program-schedule">📅 Third Thursday of Every Month • Virtual</div>
+                    <p class="program-description">Community-led themed conversations going beyond general support. These sessions offer skill-building workshops, guest speakers, and focused discussions on specific topics like mental health, nutrition, and managing multiple chronic conditions. Some sessions bring together people with shared experiences for deeper connections.</p>
+                    <a href="#calendar" class="register-btn">View Special Sessions</a>
+                </div>
+
+                <div class="program-card">
+                    <h3 class="program-title">Lunch and Learn</h3>
+                    <div class="program-schedule">📅 One Saturday Per Month • Virtual</div>
+                    <p class="program-description">Educational sessions featuring scientists discussing recent discoveries and answering community questions about lipodystrophy and related comorbidities. These recorded sessions provide valuable insights into the latest research and are available for future reference and those unable to attend live.</p>
+                    <a href="#resources" class="register-btn">Watch Past Sessions</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="calendar" class="calendar-section">
+        <div class="container">
+            <div class="calendar-header">
+                <h2>Upcoming Sessions</h2>
+                <p>Mark your calendar and join us for these upcoming community programs</p>
+            </div>
+            
+            <div class="calendar-grid">
+                <div class="event-card">
+                    <div class="event-date">Tuesday, August 5, 2025 • 7:00 PM EST</div>
+                    <div class="event-title">Tea with LU - Monthly Support</div>
+                    <span class="event-type">Support Group</span>
+                    <p>Open discussion and peer support for the lipodystrophy community</p>
+                </div>
+                
+                <div class="event-card">
+                    <div class="event-date">Saturday, August 16, 2025 • 12:00 PM EST</div>
+                    <div class="event-title">Lunch and Learn: Latest Research Updates</div>
+                    <span class="event-type">Educational</span>
+                    <p>Dr. Sarah Mitchell discusses recent clinical trial results</p>
+                </div>
+                
+                <div class="event-card">
+                    <div class="event-date">Thursday, August 21, 2025 • 7:00 PM EST</div>
+                    <div class="event-title">Special Session: Mental Health & Chronic Illness</div>
+                    <span class="event-type">Special Topic</span>
+                    <p>Strategies for emotional wellbeing with guest therapist</p>
+                </div>
+                
+                <div class="event-card">
+                    <div class="event-date">Tuesday, September 2, 2025 • 7:00 PM EST</div>
+                    <div class="event-title">Tea with LU - Monthly Support</div>
+                    <span class="event-type">Support Group</span>
+                    <p>Open discussion and peer support for the lipodystrophy community</p>
+                </div>
+                
+                <div class="event-card">
+                    <div class="event-date">Thursday, September 18, 2025 • 7:00 PM EST</div>
+                    <div class="event-title">Special Session: Nutrition & Lipodystrophy</div>
+                    <span class="event-type">Special Topic</span>
+                    <p>Practical nutrition guidance with registered dietitian</p>
+                </div>
+                
+                <div class="event-card">
+                    <div class="event-date">Saturday, September 20, 2025 • 12:00 PM EST</div>
+                    <div class="event-title">Lunch and Learn: Treatment Options</div>
+                    <span class="event-type">Educational</span>
+                    <p>Comprehensive overview of current and emerging treatments</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="resources" class="resources">
+        <div class="container">
+            <h2>Educational Resources</h2>
+            <p style="text-align: center; color: #666; margin-bottom: 20px;">Access recorded sessions, community guidelines, and additional support materials</p>
+            
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <div class="resource-icon">🎥</div>
+                    <h3>Lunch and Learn Library</h3>
+                    <p>Watch recorded educational sessions featuring leading researchers and clinicians discussing the latest in lipodystrophy science and treatment.</p>
+                    <a href="https://www.youtube.com/@lipodystrophyunited" class="register-btn" target="_blank" style="margin-top: 20px; display: inline-block;">Visit YouTube Channel</a>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-icon">📋</div>
+                    <h3>Community Guidelines</h3>
+                    <p>Review our community agreements to ensure all participants feel safe, respected, and supported in our virtual spaces.</p>
+                    <a href="#" class="register-btn" style="margin-top: 20px; display: inline-block;">Read Guidelines</a>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-icon">💬</div>
+                    <h3>Discussion Forums</h3>
+                    <p>Continue conversations between sessions in our moderated online forums where community members share experiences and support.</p>
+                    <a href="#" class="register-btn" style="margin-top: 20px; display: inline-block;">Join Forums</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <h2>Community Voices</h2>
+            <div class="testimonial-slider">
+                <div class="testimonial">
+                    <p class="testimonial-text">"Tea with LU gave me hope when I felt most isolated. Connecting with others who truly understand this journey has been life-changing. The support and knowledge shared in these sessions is invaluable."</p>
+                    <div class="testimonial-author">— Sarah, Community Member</div>
+                </div>
+                
+                <div class="testimonial">
+                    <p class="testimonial-text">"As a caregiver, the special sessions have provided me with practical tools and emotional support. Knowing I'm not alone in this journey with my daughter has made all the difference."</p>
+                    <div class="testimonial-author">— Michael, Parent & Caregiver</div>
+                </div>
+                
+                <div class="testimonial">
+                    <p class="testimonial-text">"The Lunch and Learn sessions keep me updated on the latest research in an accessible way. As someone living with lipodystrophy, staying informed about advances gives me hope for the future."</p>
+                    <div class="testimonial-author">— Dr. Jennifer, Patient & Researcher</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Join Our Community?</h2>
+            <p>Whether you're seeking support, looking to learn, or wanting to connect with others, there's a place for you in our community.</p>
+            <div class="cta-buttons">
+                <a href="https://us06web.zoom.us/meeting/register/tZAvc--uqz4pGdQoWRsbgqAkpsHDmiEV92BR" class="cta-btn" target="_blank">Register for Next Session</a>
+                <a href="https://www.youtube.com/@lipodystrophyunited" class="cta-btn" target="_blank">Watch Past Sessions</a>
+                <a href="mailto:info@lipodystrophyunited.org" class="cta-btn">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Connect With Us</h3>
+                    <p>Join our community programs and stay connected with the latest updates, research, and support opportunities.</p>
+                    <p style="margin-top: 15px;"><strong>Email:</strong> info@lipodystrophyunited.org</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <p><a href="#programs">Our Programs</a></p>
+                    <p><a href="#calendar">Event Calendar</a></p>
+                    <p><a href="https://www.youtube.com/@lipodystrophyunited">YouTube Channel</a></p>
+                    <p><a href="#">Community Guidelines</a></p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <p>All our programs are free and open to anyone affected by lipodystrophy, including patients, families, caregivers, and healthcare providers.</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Lipodystrophy United. All rights reserved. | Building community, advancing understanding, advocating for change.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Simple testimonial rotation
+        const testimonials = document.querySelectorAll('.testimonial');
+        let currentTestimonial = 0;
+
+        function showTestimonial(index) {
+            testimonials.forEach((testimonial, i) => {
+                testimonial.style.display = i === index ? 'block' : 'none';
+            });
+        }
+
+        function nextTestimonial() {
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            showTestimonial(currentTestimonial);
+        }
+
+        // Initialize testimonials
+        showTestimonial(0);
+        setInterval(nextTestimonial, 6000); // Rotate every 6 seconds
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(248,249,250,0.95) 100%)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = 'linear-gradient(135deg, #fff 0%, #f8f9fa 100%)';
+                header.style.backdropFilter = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
